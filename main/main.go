@@ -2,23 +2,19 @@ package main
 
 import (
 	"io"
-	"log"
 	"net/http"
-	"os/exec"
 )
 
-func reLaunch() {
-	cmd := exec.Command("sh", "./deploy.sh")
-	err := cmd.Start()
-
-	if err != nil {
-		log.Fatal(err)
+func Print1to20() int {
+	res := 0
+	for i := 1; i <= 20; i++ {
+		res += i
 	}
-	err = cmd.Wait()
+	return res
 }
+
 func firstPage(w http.ResponseWriter, r *http.Request) {
 	io.WriteString(w, "<h1>LLS</h1>")
-	reLaunch()
 }
 
 func main() {
