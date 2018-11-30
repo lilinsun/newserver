@@ -12,3 +12,14 @@ func TestPrint(t *testing.T) {
 		t.Errorf("Wrong result of Print1to20")
 	}
 }
+
+func TestMain(m *testing.M) {
+	fmt.Println("Test begin...")
+	m.Run()
+}
+
+func BenchmarkAll(b *testing.B) {
+	for n := 0; n < b.N; n++ {
+		Print1to20()
+	}
+}
