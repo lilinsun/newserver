@@ -1,23 +1,17 @@
 package main
 
 import (
-	"io"
+	"github.com/julienschmidt/httprouter"
 	"net/http"
 )
 
-func Print1to20() int {
-	res := 0
-	for i := 1; i <= 20; i++ {
-		res += i
-	}
-	return res
-}
-
-func firstPage(w http.ResponseWriter, r *http.Request) {
-	io.WriteString(w, "<h1>LLS</h1>")
+func RegisterHandlers() *httprouter.Router {
+	router := httprouter.New()
+	router.POST("/user", CreateUser)
+	return router
 }
 
 func main() {
-	http.HandleFunc("/", firstPage)
-	http.ListenAndServe(":5000", nil)
+	r := RegisterHandlers()
+	http.ListenAndServe(":8000", r)
 }
