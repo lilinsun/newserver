@@ -1,2 +1,2 @@
-## readme.md
-LLs
+# readme.md
+LLS Golang Learning Project
