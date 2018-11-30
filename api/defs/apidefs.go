@@ -12,7 +12,7 @@ type VideoInfo struct {
 	DisplayCtime string
 }
 
-type Comments struct {
+type Comment struct {
 	Id      string
 	VideoId string
 	Author  string
