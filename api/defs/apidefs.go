@@ -18,3 +18,13 @@ type Comment struct {
 	Author  string
 	Content string
 }
+
+type SimpleSession struct {
+	Username string
+	TTL      int64
+}
+
+type SignedUp struct {
+	Success   bool   `json:"success"`
+	SessionId string `json:"session_id"`
+}
