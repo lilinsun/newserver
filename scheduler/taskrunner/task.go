@@ -35,7 +35,8 @@ func deleteVideo(vid string) error {
 }
 
 func VideoClearExecutor(dc dataChan) error {
-	errMap := &sync.map{}
+	errMap := &sync.Map{}
+	var err error
 forloop:
 	for {
 		select {
